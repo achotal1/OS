@@ -1,0 +1,82 @@
+OPERATING SYSTEMS QUESTIONS
+
+
+1.) 
+What is an Operating System? List its primary responsibilities.
+
+Answer: OS is a (the most priviledged) software that runs on the computer to manage resources (including) interacting with I/O and perform computational tasks and manage memory. 
+
+2.) 
+What are the three (or four) different ways in which OS code can be invoked? Explain. 
+
+Answer: (I/O intensive tasks, Computational tasks, memory tasks,)
+- System Calls
+A system call can be used by a program on the computer to call on the OS. 
+Types of System Calls : There are 5 different categories of system calls –
+System calls provide services of the OS to program via API (Application Programming Interface).
+
+Process control: end, abort, create, terminate, allocate and free memory.
+File management: create, open, close, delete, read file etc.
+Device management
+Information maintenance
+Communication
+
+- Interrupts 
+Hardware can send interrupts to the CPU which invokes the OS. For example a network card recieves a packet that needs to be delievered to
+the OS and subsequently a program. The network card here would send an interrupt to the CPU which calls on the OS and the specific interrupt handler to handle it. Interrupt handlers are sitting in memory waiting for the interrupt to invoke(just like a function).
+
+- Exceptions 
+When the user program does sometihng wrong. Like Null pointer dereferencing error, divide by 0, floating point exception
+, segmentation faults. The process is killed by OS if some exception occurs.
+
+- Kernel Threads
+OS after booting up start persistent/periodical kernel threads. For ex a kernel thread to log important events. 
+
+
+3.)
+ Explain the following interfaces in a computer system
+(a) Instruction Set Architecture (ISA)
+(b) User Instruction Set Architecture (User ISA),
+(c) System ISA,
+(d) Application Binary Interface (ABI).
+(e) Application Programmers’ Interface (API) 
+
+a) ISA 
+The set of instructions that the software can issue to CPU which then allows to control hardware resources. The hardware vendor (intel, amd)
+Why is the ISA only not enough for softwares to talk to hardware? Because security, multiplexing, I/O device drivers( software dont know how to talk to hardware) are needed and that is why OS is needed. 
+Two different ISAs
+User ISA which can be executed by unpriviledged programs to access the CPU without needing access from the OS. Example, load and store,
+and simple arithmetic. 
+
+System ISA 
+Special instructions that provide privileged access to the underlying hardware. Only OS can invoke these instructions. 
+Unpriv Programs would call system calls to invoke OS which in turn can use System ISA to do the function it needs to. 
+
+d) ABI 
+Its the interface which allows the programs to access CPU without the use of the OS by the using the User ISA. 
+ABI is really important for the portability of programs. Say you move the binary executable from one system to another and it has a different 
+User ISA or diff ABI then the program wont work. 
+e) API 
+Libraries which have specific function to make programmer's life easier. The libraries have access to the User ISA. 
+
+API is for programming time and ABI is for runtime. 
+
+
+4.) 
+Why doesn’t a program (executable binary) that is compiled on the linux machine execute on
+a Windows machine, even if the underlying CPU hardware is the same (say x86)? 
+
+Answer: 
+Because it will have a different ABI or different User ISA meaning the same rules dont apply or rather they are formed in different ways in different systems.
+
+5.) 
+What is meant by virtualization? Give examples of many(virtual)-to-one(physical, one-tomany, and many-to-many resource virtualization.
+OS in the beginning were put directly on the hardware but that changed to having a hypervisor and the OS subsequently on it. 
+
+6.)
+What was the first computer? First OS? First language? Who was the first programmer?
+Batch Processing Systems
+
+First OS by IBM
+
+Ada Lovelace first programmer
